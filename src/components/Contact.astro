@@ -42,7 +42,19 @@ import { Icon } from 'astro-icon/components';
       <div
         class="scroll-fade-right border-mono-lighter rounded-xl border bg-white p-8 shadow-lg"
       >
-        <form id="contactForm" class="space-y-6">
+        <form 
+          id="contactForm" 
+          class="space-y-6"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </p>
+
           <div>
             <label
               for="name"
@@ -127,11 +139,11 @@ import { Icon } from 'astro-icon/components';
   document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
-      });
+      // contactForm.addEventListener('submit', (e) => {
+      //   e.preventDefault();
+      //   alert('Thank you for your message! We will get back to you soon.');
+      //   contactForm.reset();
+      // });
     }
   });
 </script>
